@@ -1,0 +1,127 @@
+/* Thiết lập cho toàn bộ trang */
+body {
+    margin: 0;
+    padding: 0;
+    background: url('city.jpg') no-repeat center center/cover; /* Đường dẫn đến ảnh nền */
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    position: relative; /* Đảm bảo phần tử con có thể được sắp xếp với z-index */
+}
+
+/* Chatbot container */
+.chatbot-container {
+    width: 370px; /* Kích thước chiều rộng */
+    height: 500px; /* Kích thước chiều cao */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative; /* Đảm bảo chatbot nằm trên cùng */
+    z-index: 2; /* Đặt chatbot ở trên cùng */
+}
+
+/* Header của chatbot */
+.chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 16px;
+    position: relative;
+    z-index: 3; /* Đảm bảo header nằm trên cùng */
+}
+
+/* Phần hiển thị tin nhắn */
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f7f7f7;
+    max-height: calc(100% - 100px); /* Giới hạn chiều cao phần hiển thị tin nhắn */
+    display: flex;
+    flex-direction: column; /* Sửa lại để tin nhắn hiển thị từ trên xuống dưới */
+}
+
+/* Khung nhập liệu */
+.chat-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+    background-color: #fff;
+    padding: 8px;
+    justify-content: space-between; /* Đảm bảo input và button có không gian hợp lý */
+}
+
+/* Input để người dùng gõ tin nhắn */
+.chat-input input {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px;
+    font-size: 14px;
+    width: calc(100% - 80px); /* Cập nhật chiều rộng của input để phù hợp với chiều rộng mới */
+    margin-right: 8px; /* Khoảng cách giữa input và button */
+}
+
+/* Nút gửi */
+.chat-input button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.chat-input button:hover {
+    background-color: #0056b3;
+}
+
+/* Tin nhắn của người dùng */
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+    display: inline-block;
+    clear: both; /* Đảm bảo các tin nhắn không bị chồng lên nhau */
+}
+
+/* Tin nhắn của người dùng (góc trái) */
+.message.user {
+    background-color: #d4f8e8;
+    align-self: flex-start; /* Tin nhắn người dùng sẽ ở bên trái */
+    text-align: left;
+    margin-left: 10px; /* Khoảng cách với viền trái */
+    margin-right: auto; /* Đảm bảo tin nhắn không bị lệch sang phải */
+}
+
+/* Tin nhắn của bot (góc phải) */
+.message.bot {
+    background-color: #ded9d9;
+    color: black; /* Màu chữ den */
+    align-self: flex-end; /* Tin nhắn bot ở bên phải */
+    text-align: left; /* Căn chữ trong tin nhắn sang bên trái */
+    margin-left: auto; /* Đảm bảo tin nhắn không bị lệch sang trái */
+    margin-right: 10px; /* Khoảng cách với viền phải */
+    padding: 8px 12px; /* Điều chỉnh padding để tin nhắn không bị thừa không gian */
+    border-radius: 10px;
+    direction: ltr; /* Văn bản sẽ hiển thị từ trái sang phải */
+}
+
+/* Thanh cuộn (scrollbar) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border-radius: 10px;
+}
